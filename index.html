@@ -1,589 +1,176 @@
-YPE html>
+<!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-    <meta property="og:title" content="كتاب الشيفرة المرئية - الدليل الشامل">
-<meta property="og:description" content="تعلم أسرار الاستخبارات الرقمية والبحث المفتوح المصدر (OSINT) مع هذا الدليل الحصري.">
-<meta property="og:image" content="cover.jpg">
-<meta property="og:url" content="https://yousr78-svg.github.io/mon-premier-projet-y/">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>الدليل الشامل للعملات الرقمية</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;700&display=swap" rel="stylesheet">
+    <title>كتاب الشيفرة المرئية - الدليل الشامل في OSINT</title>
+    
+    <meta property="og:title" content="كتاب الشيفرة المرئية - الدليل الشامل">
+    <meta property="og:description" content="اكتشف أسرار الاستخبارات الرقمية والبحث المفتوح المصدر مع هذا الدليل التطبيقي.">
+    <meta property="og:image" content="cover.jpg">
+    <meta property="og:url" content="https://yousr78-svg.github.io/mon-premier-projet-y/">
+
     <style>
+        /* تعريف الألوان والهوية البصرية */
         :root {
-            --primary-color: #2563eb;
-            --bg-color: #f8fafc;
-            --text-color: #1e293b;
-            --sidebar-bg: #ffffff;
-            --card-bg: #ffffff;
-            --border-color: #e2e8f0;
-            --accent-color: #f59e0b;
-            --success-color: #10b981;
-            --danger-color: #ef4444;
-        }
-
-        .dark-mode {
-            --primary-color: #60a5fa;
-            --bg-color: #0f172a;
-            --text-color: #f1f5f9;
-            --sidebar-bg: #1e293b;
-            --card-bg: #1e293b;
-            --border-color: #334155;
-        }
-
-        * {
-            box-sizing: border-box;
-            transition: background-color 0.3s, color 0.3s;
+            --primary-blue: #1e3a8a;
+            --accent-gold: #fbbf24;
+            --success-green: #22c55e;
+            --light-bg: #f8fafc;
+            --text-dark: #1e293b;
         }
 
         body {
-            font-family: 'Tajawal', sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--light-bg);
+            color: var(--text-dark);
             margin: 0;
             padding: 0;
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            line-height: 1.8;
-            display: flex;
-            height: 100vh;
-            overflow: hidden;
+            line-height: 1.7;
         }
 
-        /* Sidebar Navigation */
-        aside {
-            width: 280px;
-            background-color: var(--sidebar-bg);
-            border-left: 1px solid var(--border-color);
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            padding: 2rem 1rem;
-            box-shadow: -2px 0 10px rgba(0,0,0,0.05);
-            z-index: 100;
+        /* حاوية المحتوى الرئيسية */
+        .main-container {
+            max-width: 800px;
+            margin: 40px auto;
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.05);
         }
 
-        .book-cover {
+        /* العناوين */
+        h1 {
+            color: var(--primary-blue);
             text-align: center;
-            margin-bottom: 2rem;
-            padding-bottom: 1rem;
-            border-bottom: 1px solid var(--border-color);
-            flex-shrink: 0;
+            font-size: 2.5rem;
+            margin-bottom: 10px;
         }
 
-        .book-icon {
-            font-size: 3rem;
-            color: var(--accent-color);
-            margin-bottom: 0.5rem;
-        }
-
-        .nav-links {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-            overflow-y: auto;
-            flex-grow: 1;
-        }
-
-        .nav-links li {
-            margin-bottom: 0.5rem;
-        }
-
-        .nav-links a {
+        .tagline {
+            text-align: center;
+            color: #64748b;
+            font-size: 1.1rem;
+            margin-bottom: 30px;
             display: block;
-            padding: 0.75rem 1rem;
-            text-decoration: none;
-            color: var(--text-color);
-            border-radius: 8px;
-            font-weight: 500;
-            cursor: pointer;
-            font-size: 0.95rem;
         }
 
-        .nav-links a:hover, .nav-links a.active {
-            background-color: rgba(37, 99, 235, 0.1);
-            color: var(--primary-color);
-        }
-
-        /* Main Content */
-        main {
-            flex: 1;
-            padding: 3rem 10%;
-            max-width: 1000px;
-            margin: 0 auto;
-            overflow-y: auto;
-            height: 100vh;
-            position: relative;
-        }
-
-        /* Typography */
-        h1, h2, h3, h4 {
-            color: var(--primary-color);
-            margin-top: 1.5rem;
-        }
-
-        h1 { font-size: 2.2rem; margin-bottom: 1.5rem; border-bottom: 2px solid var(--border-color); padding-bottom: 0.5rem; }
-        h2 { font-size: 1.6rem; margin-bottom: 1rem; }
-        h3 { font-size: 1.3rem; color: var(--text-color); font-weight: bold; }
-        p { margin-bottom: 1.5rem; font-size: 1.05rem; text-align: justify; }
-        
-        /* Chapter Styling */
-        .chapter {
-            background-color: var(--card-bg);
-            padding: 2.5rem;
+        /* الفهرس */
+        .index-box {
+            background: #f1f5f9;
+            padding: 20px;
             border-radius: 12px;
-            margin-bottom: 2rem;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-            border: 1px solid var(--border-color);
-            display: none;
-            animation: fadeIn 0.5s ease-in-out;
-            min-height: 60vh;
+            border-right: 5px solid var(--accent-gold);
+            margin-bottom: 30px;
         }
 
-        .chapter.active-chapter {
-            display: block;
+        .index-box h3 { margin-top: 0; color: var(--primary-blue); }
+        .index-box ul { list-style: none; padding: 0; }
+        .index-box li { margin: 8px 0; }
+        .index-box a { text-decoration: none; color: #3b82f6; font-weight: bold; }
+
+        /* أقسام المحتوى */
+        .content-section {
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #f1f5f9;
         }
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
+        h2 {
+            color: var(--primary-blue);
+            font-size: 1.8rem;
+            margin-bottom: 15px;
         }
 
-        /* Info Boxes */
-        .highlight-box {
-            background-color: rgba(245, 158, 11, 0.1);
-            border-right: 4px solid var(--accent-color);
-            padding: 1.5rem;
-            margin: 1.5rem 0;
-            border-radius: 8px;
-        }
-        
-        .tip-box {
-            background-color: rgba(16, 185, 129, 0.1);
-            border-right: 4px solid var(--success-color);
-            padding: 1.5rem;
-            margin: 1.5rem 0;
-            border-radius: 8px;
+        /* صندوق الشراء (Call to Action) */
+        .cta-card {
+            background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            border: 2px solid #bfdbfe;
         }
 
-        .warning-box {
-            background-color: rgba(239, 68, 68, 0.1);
-            border-right: 4px solid var(--danger-color);
-            padding: 1.5rem;
-            margin: 1.5rem 0;
-            border-radius: 8px;
-        }
-
-        /* Tables & Lists */
-        ul, ol { margin-right: 1.5rem; margin-bottom: 1.5rem; }
-        li { margin-bottom: 0.8rem; }
-        
-        .comparison-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 1.5rem 0;
-        }
-        .comparison-table th, .comparison-table td {
-            border: 1px solid var(--border-color);
-            padding: 10px;
-            text-align: right;
-        }
-        .comparison-table th {
-            background-color: rgba(37, 99, 235, 0.05);
-            color: var(--primary-color);
-        }
-
-        /* Page Controls */
-        .page-controls {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 3rem;
-            padding-top: 1.5rem;
-            border-top: 1px solid var(--border-color);
-        }
-
-        .btn {
-            background-color: var(--primary-color);
-            color: white;
-            border: none;
-            padding: 10px 25px;
-            border-radius: 8px;
-            cursor: pointer;
-            font-family: 'Tajawal', sans-serif;
-            font-size: 1rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            font-weight: bold;
-        }
-        
-        .btn:disabled {
-            background-color: var(--border-color);
-            cursor: not-allowed;
-            opacity: 0.6;
-        }
-
-        .btn:hover:not(:disabled) {
-            opacity: 0.9;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        }
-
-        /* Mobile */
-        @media (max-width: 768px) {
-            body { flex-direction: column; height: auto; overflow: auto; }
-            aside { 
-                position: relative; 
-                width: 100%; 
-                height: auto; 
-                border-left: none;
-                border-bottom: 1px solid var(--border-color);
-                padding: 1rem;
-            }
-            .nav-links { display: flex; overflow-x: auto; padding-bottom: 10px; }
-            .nav-links li { min-width: 120px; margin-left: 10px; }
-            main { padding: 1rem; height: auto; overflow: visible; }
-            .chapter { padding: 1.5rem; }
-        }
-
-        /* Theme Toggle */
-        .theme-toggle {
-            position: fixed;
-            bottom: 30px;
-            left: 30px;
-            background-color: var(--primary-color);
-            color: white;
-            border: none;
-            border-radius: 50%;
-            width: 50px;
-            height: 50px;
-            cursor: pointer;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-            font-size: 1.5rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 1000;
-        }
-        
-        .tag {
+        .whatsapp-btn {
             display: inline-block;
-            background: var(--border-color);
-            padding: 4px 10px;
-            border-radius: 6px;
-            font-size: 0.85rem;
-            margin-left: 5px;
-            color: var(--text-color);
+            background-color: var(--success-green);
+            color: white;
+            padding: 18px 35px;
+            border-radius: 50px;
+            text-decoration: none;
             font-weight: bold;
+            font-size: 1.2rem;
+            margin-top: 20px;
+            transition: transform 0.3s ease;
+            box-shadow: 0 10px 20px rgba(34, 197, 94, 0.2);
+        }
+
+        .whatsapp-btn:hover {
+            transform: translateY(-3px);
+            filter: brightness(1.1);
+        }
+
+        /* تذييل الصفحة */
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: #94a3b8;
+            font-size: 0.9rem;
+        }
+
+        /* التجاوب مع الجوال */
+        @media (max-width: 600px) {
+            .main-container { margin: 10px; padding: 20px; }
+            h1 { font-size: 1.8rem; }
         }
     </style>
 </head>
 <body>
 
-    <!-- Sidebar Navigation -->
-    <aside>
-        <div class="book-cover">
-            <div class="book-icon">₿</div>
-            <h2>الاحتراف في الكريبتو</h2>
-            <p style="font-size: 0.85rem; color: #64748b;">من الصفر إلى الاحتراف</p>
-        </div>
-        <ul class="nav-links">
-            <li><a onclick="showChapter('intro')" class="nav-item active" data-target="intro">1. المفهوم والثورة المالية</a></li>
-            <li><a onclick="showChapter('history')" class="nav-item" data-target="history">2. تاريخ ودورات السوق</a></li>
-            <li><a onclick="showChapter('blockchain')" class="nav-item" data-target="blockchain">3. تقنية البلوكشين بعمق</a></li>
-            <li><a onclick="showChapter('types')" class="nav-item" data-target="types">4. تصنيفات العملات والتوكنات</a></li>
-            <li><a onclick="showChapter('wallets')" class="nav-item" data-target="wallets">5. المحافظ والأمان الرقمي</a></li>
-            <li><a onclick="showChapter('strategies')" class="nav-item" data-target="strategies">6. استراتيجيات الاستثمار الذكي</a></li>
-            <li><a onclick="showChapter('future')" class="nav-item" data-target="future">7. مستقبل الويب 3.0</a></li>
-        </ul>
-    </aside>
+    <div class="main-container">
+        <header>
+            <h1>الشيفرة المرئية</h1>
+            <span class="tagline">الدليل العملي لاحتراف الاستخبارات الرقمية والـ OSINT</span>
+        </header>
 
-    <!-- Main Content Area -->
-    <main id="content-area">
-        
-        <!-- Chapter 1 -->
-        <section id="intro" class="chapter active-chapter">
-            <h1>الفصل الأول: لماذا نحتاج العملات الرقمية؟</h1>
-            <p>
-                العملات الرقمية ليست مجرد "أموال إنترنت"؛ إنها تمثل نقلة نوعية في كيفية نقل القيمة عبر العالم. لنفهم أهميتها، يجب أن نقارنها بالنظام المالي التقليدي (Fiat Money).
-            </p>
-            
-            <div class="highlight-box">
-                <strong>الجوهر:</strong> العملات الرقمية تحل مشكلة "الثقة". في النظام التقليدي، أنت تثق بالبنك. في الكريبتو، أنت تثق في الكود والرياضيات.
-            </div>
-
-            <h3>مقارنة سريعة: العملات الحكومية vs العملات الرقمية</h3>
-            <table class="comparison-table">
-                <tr>
-                    <th>وجه المقارنة</th>
-                    <th>العملات الحكومية (دولار، يورو...)</th>
-                    <th>العملات الرقمية (بيتكوين...)</th>
-                </tr>
-                <tr>
-                    <td><strong>التحكم</strong></td>
-                    <td>مركزي (البنك المركزي والحكومة)</td>
-                    <td>لامركزي (المجتمع والشبكة)</td>
-                </tr>
-                <tr>
-                    <td><strong>التضخم</strong></td>
-                    <td>غير محدود (يمكن طباعة المزيد)</td>
-                    <td>محدود برمجياً (مثلاً 21 مليون بيتكوين فقط)</td>
-                </tr>
-                <tr>
-                    <td><strong>الحدود</strong></td>
-                    <td>صعبة ومكلفة في التحويل الدولي</td>
-                    <td>بلا حدود، سريعة، ورخيصة التكلفة</td>
-                </tr>
-            </table>
-
-            <p>
-                تخيل أنك تريد إرسال مليون دولار لشخص في قارة أخرى يوم الأحد. عبر البنوك، سيستغرق الأمر أياماً، أوراقاً، ورسوماً باهظة. عبر شبكة بلوكشين، يتم الأمر في دقائق بتكلفة زهيدة وبدون وسيط.
-            </p>
-            
-            <div class="page-controls">
-                <button class="btn" disabled>السابق</button>
-                <button class="btn" onclick="nextChapter()">الفصل التالي &larr;</button>
-            </div>
-        </section>
-
-        <!-- Chapter 2 -->
-        <section id="history" class="chapter">
-            <h2>الفصل الثاني: تاريخ السوق ودوراته</h2>
-            <p>
-                فهم تاريخ العملات الرقمية يحميك من الانجراف وراء العواطف. السوق يتحرك في "دورات" (Cycles).
-            </p>
-            
-            <h3>المحطات الكبرى:</h3>
+        <section class="index-box">
+            <h3>محتويات الصفحة:</h3>
             <ul>
-                <li><strong>2008 (البداية):</strong> الأزمة المالية العالمية وفقدان الثقة في البنوك. ظهور ورقة "ساتوشي ناكاموتو" البيضاء.</li>
-                <li><strong>2013 (الصعود الأول):</strong> وصل البيتكوين إلى 1000 دولار لأول مرة، وبدأ العالم ينتبه.</li>
-                <li><strong>2017 (جنون ICO):</strong> طفرة العملات البديلة. ظهور آلاف المشاريع، ووصول البيتكوين لـ 20,000 دولار.</li>
-                <li><strong>2021 (دخول المؤسسات):</strong> شركات كبرى مثل تسلا ومايكروستراتيجي تشتري البيتكوين.</li>
+                <li><a href="#intro">● ماذا ستتعلم في هذا الكتاب؟</a></li>
+                <li><a href="#why">● لماذا هذا الدليل تحديداً؟</a></li>
+                <li><a href="#order">● اطلب نسختك الآن</a></li>
             </ul>
-
-            <div class="warning-box">
-                <strong>مصطلحات ستسمعها كثيراً:</strong><br>
-                - <strong>Bull Market (السوق الصاعد):</strong> فترة ارتفاع الأسعار والتفاؤل.<br>
-                - <strong>Bear Market (السوق الهابط):</strong> فترة انخفاض الأسعار والتشاؤم.<br>
-                - <strong>Halving (التنصيف):</strong> حدث في البيتكوين كل 4 سنوات يقلل المعروض للنصف، وتاريخياً يتبعه صعود.
-            </div>
-
-            <div class="page-controls">
-                <button class="btn" onclick="prevChapter()">&rarr; السابق</button>
-                <button class="btn" onclick="nextChapter()">الفصل التالي &larr;</button>
-            </div>
         </section>
 
-        <!-- Chapter 3 -->
-        <section id="blockchain" class="chapter">
-            <h2>الفصل الثالث: كيف تعمل التقنية؟ (ببساطة)</h2>
-            <p>
-                لا تحتاج أن تكون مبرمجاً لتفهم البلوكشين. تخيله كـ <strong>"صندوق زجاجي"</strong> في وسط ساحة عامة.
-            </p>
+        <section id="intro" class="content-section">
+            <h2>عن الكتاب</h2>
+            <p>يأخذك كتاب <strong>"الشيفرة المرئية"</strong> في رحلة تعليمية عميقة لاستكشاف عالم البيانات المفتوحة. ستتعلم كيف تستخدم الإنترنت كأداة استخباراتية قوية للوصول إلى المعلومات، تتبع الأصول الرقمية، وتحليل المصادر بدقة احترافية.</p>
+        </section>
+
+        <section id="why" class="content-section">
+            <h2>ماذا ستتعلم؟</h2>
             <ul>
-                <li>أي شخص يمكنه النظر داخل الصندوق ورؤية ما فيه (الشفافية).</li>
-                <li>عندما يضع شخص شيئاً في الصندوق، يراه الجميع.</li>
-                <li>بمجرد وضع الشيء، لا يمكن لأحد إزالته أو تغييره (عدم القابلية للتعديل).</li>
+                <li>تقنيات البحث المتقدمة وتجاوز العقبات الرقمية.</li>
+                <li>تحليل الصور الجغرافي وتحديد المواقع بدقة.</li>
+                <li>استخدام أدوات الاستخبارات الرقمية الحديثة (مجانية ومدفوعة).</li>
+                <li>طرق حماية خصوصيتك أثناء القيام بعمليات البحث.</li>
             </ul>
+        </section>
 
-            <h3>آليات الإجماع (كيف نتفق؟)</h3>
-            <p>كيف نضمن أن لا يغش أحد في الشبكة؟ هناك طريقتان رئيسيتان:</p>
+        <section id="order" class="cta-card">
+            <h2>ابدأ رحلتك الاحترافية اليوم</h2>
+            <p>لا تفوت فرصة امتلاك الدليل الشامل والبدء في تطبيق مهارات الـ OSINT عملياً.</p>
             
-            <ol>
-                <li>
-                    <strong>إثبات العمل (Proof of Work - PoW):</strong>
-                    <br>مثل البيتكوين. يتطلب أجهزة كمبيوتر قوية (تعدين) لحل مسائل رياضية معقدة لتأمين الشبكة. يستهلك طاقة ولكنه الأكثر أماناً.
-                </li>
-                <li>
-                    <strong>إثبات الحصة (Proof of Stake - PoS):</strong>
-                    <br>مثل الإيثريوم (حالياً). بدلاً من شراء أجهزة، يقوم المستخدمون "بتجميد" عملاتهم لضمان أمان الشبكة مقابل عائد سنوي. هذا أكثر توفيراً للطاقة.
-                </li>
-            </ol>
-
-            <div class="page-controls">
-                <button class="btn" onclick="prevChapter()">&rarr; السابق</button>
-                <button class="btn" onclick="nextChapter()">الفصل التالي &larr;</button>
-            </div>
+            <a href="https://wa.me/213662124064?text=مرحباً، أريد شراء نسخة من كتاب الشيفرة المرئية" class="whatsapp-btn">
+                اطلب عبر واتساب الآن 🟢
+            </a>
+            <p style="font-size: 0.8rem; margin-top: 15px; color: #64748b;">(سيتم توجيهك مباشرة لمحادثة الواتساب)</p>
         </section>
+    </div>
 
-        <!-- Chapter 4 -->
-        <section id="types" class="chapter">
-            <h2>الفصل الرابع: أنواع العملات (Coin vs Token)</h2>
-            <p>ليس كل ما يلمع بيتكوين. يجب أن تعرف ماذا تشتري.</p>
+    <footer>
+        <p>© 2026 جميع الحقوق محفوظة - مشروع الشيفرة المرئية</p>
+    </footer>
 
-            <h3>1. العملات الأصلية (Coins)</h3>
-            <p>هي العملات التي تمتلك شبكة بلوكشين خاصة بها (مثل Bitcoin, Ethereum, Solana).</p>
-
-            <h3>2. التوكنات (Tokens)</h3>
-            <p>هي مشاريع مبنية فوق شبكات أخرى (غالباً فوق إيثريوم). تنقسم إلى:</p>
-            <ul>
-                <li><strong>Utility Tokens:</strong> توكنات لها استخدام داخل تطبيق معين (مثل عملة لمنصة ألعاب).</li>
-                <li><strong>Security Tokens:</strong> تمثل حصة في شركة أو أصل حقيقي (مشابهة للأسهم).</li>
-                <li><strong>Meme Coins:</strong> عملات نكتة مثل Dogecoin. خطيرة جداً وتعتمد على الضجيج الإعلامي.</li>
-            </ul>
-
-            <div class="tip-box">
-                <strong>نصيحة ذهبية:</strong> للمبتدئين، يُنصح دائماً بالتركيز على العملات الكبرى (BTC & ETH) لأنها تمثل "السوق" وهي الأقل خطورة مقارنة بالعملات الصغيرة.
-            </div>
-
-            <div class="page-controls">
-                <button class="btn" onclick="prevChapter()">&rarr; السابق</button>
-                <button class="btn" onclick="nextChapter()">الفصل التالي &larr;</button>
-            </div>
-        </section>
-
-        <!-- Chapter 5 -->
-        <section id="wallets" class="chapter">
-            <h2>الفصل الخامس: المحافظ والأمان (أخطر فصل)</h2>
-            <p>في الكريبتو، <strong>"لست مفاتيحك، ليست عملاتك"</strong> (Not your keys, not your coins).</p>
-            
-            <h3>أنواع المحافظ:</h3>
-            <table class="comparison-table">
-                <tr>
-                    <th>النوع</th>
-                    <th>الوصف</th>
-                    <th>مستوى الأمان</th>
-                </tr>
-                <tr>
-                    <td><strong>محافظ المنصات (Binance, etc)</strong></td>
-                    <td>أنت تترك أموالك لدى الشركة. سهل التداول لكن خطر إذا أفلست المنصة.</td>
-                    <td>منخفض/متوسط</td>
-                </tr>
-                <tr>
-                    <td><strong>المحافظ الساخنة (Hot Wallets)</strong></td>
-                    <td>تطبيقات على الهاتف (مثل Trust Wallet). أنت تملك المفاتيح لكنها متصلة بالإنترنت.</td>
-                    <td>جيد</td>
-                </tr>
-                <tr>
-                    <td><strong>المحافظ الباردة (Cold Wallets)</strong></td>
-                    <td>أجهزة تشبه USB (مثل Ledger). مفصولة عن الإنترنت تماماً. هي الحل الأمثل للتخزين الطويل.</td>
-                    <td>عالي جداً (الأفضل)</td>
-                </tr>
-            </table>
-
-            <div class="warning-box">
-                <strong>عبارة الاسترداد (Seed Phrase):</strong> هي 12 أو 24 كلمة تحصل عليها عند إنشاء محفظة. <br>
-                - لا تشاركها مع أحد أبداً.<br>
-                - لا تصورها بالجوال.<br>
-                - اكتبها على ورقة واحفظها في مكان آمن.
-            </div>
-
-            <div class="page-controls">
-                <button class="btn" onclick="prevChapter()">&rarr; السابق</button>
-                <button class="btn" onclick="nextChapter()">الفصل التالي &larr;</button>
-            </div>
-        </section>
-
-        <!-- Chapter 6 -->
-        <section id="strategies" class="chapter">
-            <h2>الفصل السادس: استراتيجيات الاستثمار الذكي</h2>
-            <p>كيف تربح وتتجنب الخسارة؟ إليك أهم القواعد.</p>
-
-            <h3>1. استراتيجية متوسط التكلفة (DCA)</h3>
-            <p>
-                بدلاً من استثمار مبلغ كبير مرة واحدة (والمخاطرة بشرائه في القمة)، قم بتقسيم المبلغ والشراء بشكل دوري.
-                <br><strong>مثال:</strong> بدلاً من شراء بـ 1000$ اليوم، اشتر بـ 100$ كل أسبوع لمدة 10 أسابيع. هذا يقلل من تأثير تقلبات السعر.
-            </p>
-
-            <h3>2. التخزين طويل الأمد (HODL)</h3>
-            <p>البيانات التاريخية تثبت أن الاحتفاظ بالبيتكوين لـ 4 سنوات أو أكثر كان دائماً رابحاً. التداول اليومي (Trading) خطر جداً على المبتدئين.</p>
-
-            <h3>3. إدارة المخاطر</h3>
-            <ul>
-                <li>لا تستثمر أموال الإيجار أو الديون.</li>
-                <li>وزع استثماراتك (لا تضع كل البيض في سلة واحدة).</li>
-                <li>تجنب <strong>FOMO</strong> (الخوف من ضياع الفرصة): لا تشترِ عملة فقط لأنها صعدت 50% اليوم، غالباً أنت متأخر.</li>
-            </ul>
-
-            <div class="page-controls">
-                <button class="btn" onclick="prevChapter()">&rarr; السابق</button>
-                <button class="btn" onclick="nextChapter()">الفصل التالي &larr;</button>
-            </div>
-        </section>
-
-        <!-- Chapter 7 -->
-        <section id="future" class="chapter">
-            <h2>الفصل السابع: مستقبل الويب 3.0 وما بعده</h2>
-            <p>
-                نحن ما زلنا في البداية. العملات الرقمية هي الأساس لعالم الويب 3 (Web3)، وهو انترنت يملكه المستخدمون لا الشركات.
-            </p>
-            <h3>اتجاهات المستقبل:</h3>
-            <ul>
-                <li><strong>التمويل اللامركزي (DeFi):</strong> الاقتراض والإقراض دون بنوك.</li>
-                <li><strong>الألعاب (GameFi):</strong> العب واكسب أموالاً حقيقية.</li>
-                <li><strong>التنظيم الحكومي:</strong> دخول الدول والشركات الكبرى (مثل صناديق الاستثمار ETF) سيعطي شرعية أكبر للسوق ويقلل من تذبذبه العنيف.</li>
-            </ul>
-            
-            <div style="text-align: center; margin-top: 3rem; padding: 2rem; background: rgba(37,99,235,0.05); border-radius: 12px;">
-                <h3>رحلتك تبدأ الآن!</h3>
-                <p>الاستثمار الأفضل هو الاستثمار في تعلمك. استمر في القراءة والبحث.</p>
-            </div>
-
-            <div class="page-controls">
-                <button class="btn" onclick="prevChapter()">&rarr; السابق</button>
-                <button class="btn" disabled>نهاية الكتاب</button>
-            </div>
-        </section>
-
-    </main>
-
-    <!-- Theme Toggle Button -->
-    <button class="theme-toggle" onclick="toggleTheme()" title="تبديل الوضع الليلي">
-        🌙
-    </button>
-
-    <script>
-        function toggleTheme() {
-            document.body.classList.toggle('dark-mode');
-            const btn = document.querySelector('.theme-toggle');
-            if (document.body.classList.contains('dark-mode')) {
-                btn.innerHTML = '☀️';
-            } else {
-                btn.innerHTML = '🌙';
-            }
-        }
-
-        // Logic for page flipping
-        const chapterIds = ['intro', 'history', 'blockchain', 'types', 'wallets', 'strategies', 'future'];
-        
-        function showChapter(id) {
-            // Hide all chapters
-            document.querySelectorAll('.chapter').forEach(ch => {
-                ch.classList.remove('active-chapter');
-            });
-            
-            // Show selected chapter
-            const target = document.getElementById(id);
-            if(target) {
-                target.classList.add('active-chapter');
-                // Scroll main area to top
-                document.getElementById('content-area').scrollTop = 0;
-            }
-
-            // Update Sidebar Active State
-            document.querySelectorAll('.nav-links a').forEach(link => {
-                link.classList.remove('active');
-                if(link.getAttribute('data-target') === id) {
-                    link.classList.add('active');
-                }
-            });
-        }
-
-        function nextChapter() {
-            const current = document.querySelector('.chapter.active-chapter').id;
-            const idx = chapterIds.indexOf(current);
-            if (idx < chapterIds.length - 1) {
-                showChapter(chapterIds[idx + 1]);
-            }
-        }
-
-        function prevChapter() {
-            const current = document.querySelector('.chapter.active-chapter').id;
-            const idx = chapterIds.indexOf(current);
-            if (idx > 0) {
-                showChapter(chapterIds[idx - 1]);
-            }
-        }
-    </script>
 </body>
 </html>
